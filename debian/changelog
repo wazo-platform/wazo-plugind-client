@@ -1,0 +1,5 @@
+wazo-plugind-client (0.0.1) wazo-dev; urgency=medium
+
+  * Initial release.
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Fri, 28 Apr 2017 08:18:22 -0400

@@ -5,15 +5,29 @@
 import json
 from xivo_lib_rest_client import RESTCommand
 
+DEFAULT_HEADERS = {'Accept': 'application/json', 'Content-Type': 'application/json'}
+
 
 class PluginCommand(RESTCommand):
 
     resource = 'plugins'
-    headers = {'Accept': 'application/json', 'Content-Type': 'application/json'}
 
     def install(self, url, method):
         data = {'url': url, 'method': method}
-        r = self.session.post(self.base_url, headers=self.headers, data=json.dumps(data))
+        r = self.session.post(self.base_url, headers=DEFAULT_HEADERS, data=json.dumps(data))
+
+        if r.status_code != 200:
+            self.raise_from_response(r)
+
+        return r.json()
+
+
+class ConfigCommand(RESTCommand):
+
+    resource = 'config'
+
+    def get(self):
+        r = self.session.get(self.base_url, headers=DEFAULT_HEADERS)
 
         if r.status_code != 200:
             self.raise_from_response(r)

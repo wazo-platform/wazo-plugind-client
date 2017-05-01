@@ -17,6 +17,12 @@ client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
 client.plugins.install(<url>, 'git')
 ```
 
+### Getting the service configuration
+
+```python
+client.config()
+```
+
 ## Debian package
 
 Follow the following steps to build a debian package for wazo-plugind-client manually.

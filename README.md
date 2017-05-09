@@ -23,6 +23,12 @@ client.plugins.install(<url>, 'git')
 client.plugins.list()
 ```
 
+### Uninstalling a plugin
+
+```python
+client.plugins.uninstall(<namespace>, <name>)
+```
+
 ### Getting the service configuration
 
 ```python

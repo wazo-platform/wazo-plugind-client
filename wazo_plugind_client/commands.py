@@ -28,6 +28,19 @@ class PluginCommand(RESTCommand):
 
         return r.json()
 
+    def uninstall(self, namespace, name):
+        url = '{base_url}/{namespace}/{name}'.format(
+            base_url=self.base_url,
+            namespace=namespace,
+            name=name,
+        )
+        r = self.session.delete(url, headers=DEFAULT_HEADERS)
+
+        if r.status_code != 204:
+            self.raise_from_response(r)
+
+        return r.json()
+
 
 class ConfigCommand(RESTCommand):
 

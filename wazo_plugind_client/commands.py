@@ -21,6 +21,13 @@ class PluginCommand(RESTCommand):
 
         return r.json()
 
+    def list(self):
+        r = self.session.get(self.base_url, headers=DEFAULT_HEADERS)
+        if r.status_code != 200:
+            self.raise_from_response(r)
+
+        return r.json()
+
 
 class ConfigCommand(RESTCommand):
 

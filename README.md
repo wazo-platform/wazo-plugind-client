@@ -17,6 +17,12 @@ client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
 client.plugins.install(<url>, 'git')
 ```
 
+### Listing installed plugins
+
+```python
+client.plugins.list()
+```
+
 ### Getting the service configuration
 
 ```python

@@ -17,6 +17,12 @@ client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
 client.plugins.install(<url>, 'git')
 ```
 
+### Installing a plugin from a git URL in a branch or a tag
+
+```python
+client.plugins.install(<url>, 'git', options={'ref': '<branch or tag>'})
+```
+
 ### Listing installed plugins
 
 ```python

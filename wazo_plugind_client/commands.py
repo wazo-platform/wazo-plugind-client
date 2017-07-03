@@ -8,6 +8,23 @@ from xivo_lib_rest_client import RESTCommand
 DEFAULT_HEADERS = {'Accept': 'application/json', 'Content-Type': 'application/json'}
 
 
+class MarketCommand(RESTCommand):
+
+    resource = 'market'
+
+    def list(self, *args, **kwargs):
+        params = dict(kwargs)
+        if args:
+            params['search'] = args[0]
+
+        r = self.session.get(self.base_url, params=params, headers=DEFAULT_HEADERS)
+
+        if r.status_code != 200:
+            self.raise_from_response(r)
+
+        return r.json()
+
+
 class PluginCommand(RESTCommand):
 
     resource = 'plugins'

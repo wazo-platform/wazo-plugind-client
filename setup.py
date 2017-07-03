@@ -22,6 +22,7 @@ setup(
     entry_points={
         'plugind_client.commands': [
             'config = wazo_plugind_client.commands:ConfigCommand',
+            'market = wazo_plugind_client.commands:MarketCommand',
             'plugins = wazo_plugind_client.commands:PluginCommand',
         ],
     }

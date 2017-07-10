@@ -29,8 +29,10 @@ class PluginCommand(RESTCommand):
 
     resource = 'plugins'
 
-    def install(self, url, method, options=None):
-        data = {'url': url, 'method': method}
+    def install(self, url=None, method=None, options=None):
+        data = {'method': method}
+        if url:
+            data['url'] = url
         if options:
             data['options'] = options
         r = self.session.post(self.base_url, headers=DEFAULT_HEADERS, data=json.dumps(data))

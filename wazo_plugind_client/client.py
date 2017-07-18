@@ -9,5 +9,5 @@ class PlugindClient(BaseClient):
 
     namespace = 'plugind_client.commands'
 
-    def __init__(self, host, port=9503, version='0.1', **kwargs):
+    def __init__(self, host, port=9503, version='0.2', **kwargs):
         super(PlugindClient, self).__init__(host=host, port=port, version=version, **kwargs)

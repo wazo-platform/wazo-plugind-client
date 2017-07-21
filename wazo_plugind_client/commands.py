@@ -30,11 +30,16 @@ class PluginCommand(RESTCommand):
     resource = 'plugins'
 
     def install(self, url=None, method=None, options=None):
-        data = {'method': method}
+        data = {'method': method,
+                'options': options or {}}
+
+        # make the client compatible with API version 0.1 and 0.2
         if url:
-            data['url'] = url
-        if options:
-            data['options'] = options
+            if self._client._version == '0.1':
+                data['url'] = url
+            else:
+                data['options']['url'] = url
+
         r = self.session.post(self.base_url, headers=DEFAULT_HEADERS, data=json.dumps(data))
 
         if r.status_code != 200:

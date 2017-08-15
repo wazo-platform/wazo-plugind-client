@@ -42,6 +42,13 @@ client.market.list(order='name', direction='asc', limit=5, offset=10)
 client.plugins.list()
 ```
 
+
+### Getting the metadata of an installed plugin
+
+```python
+client.plugins.get(<namespace>, <name>)
+```
+
 ### Uninstalling a plugin
 
 ```python

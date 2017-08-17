@@ -36,6 +36,12 @@ client.market.list('official')
 client.market.list(order='name', direction='asc', limit=5, offset=10)
 ```
 
+### Getting the information about a plugin on the market
+
+```python
+client.market.get(<namespace>, <name>)
+```
+
 ### Listing installed plugins
 
 ```python

@@ -23,7 +23,7 @@ client.plugins.install(<url>, 'git')
 client.plugins.install(<url>, 'git', options={'ref': '<branch or tag>'})
 ```
 
-### Listint plugins available for installation
+### Listing plugins available for installation
 
 ```python
 # List all plugins

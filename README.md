@@ -23,7 +23,7 @@ client.plugins.install(<url>, 'git')
 client.plugins.install(<url>, 'git', options={'ref': '<branch or tag>'})
 ```
 
-### Listint plugins available for installation
+### Listing plugins available for installation
 
 ```python
 # List all plugins
@@ -34,6 +34,12 @@ client.market.list('official')
 
 # Order plugins by name ascending with pagination
 client.market.list(order='name', direction='asc', limit=5, offset=10)
+```
+
+### Getting the information about a plugin on the market
+
+```python
+client.market.get(<namespace>, <name>)
 ```
 
 ### Listing installed plugins

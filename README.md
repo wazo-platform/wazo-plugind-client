@@ -8,7 +8,7 @@ A python client library to access wazo-plugind
 
 ```python
 from wazo_plugind_client import Client
-client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
+client = Client('localhost', verify_certificate=False, token=<wazo-auth-token>)
 ```
 
 ### Installing a plugin from a git URL

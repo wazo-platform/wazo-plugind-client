@@ -47,9 +47,13 @@ class PluginCommand(RESTCommand):
 
         return r.json()
 
-    def install(self, url=None, method=None, options=None):
+    def install(self, url=None, method=None, options=None, **kwargs):
         data = {'method': method,
                 'options': options or {}}
+
+        query_string = {}
+        if kwargs.get('reinstall'):
+            query_string['reinstall'] = True
 
         # make the client compatible with API version 0.1 and 0.2
         if url:
@@ -58,7 +62,12 @@ class PluginCommand(RESTCommand):
             else:
                 data['options']['url'] = url
 
-        r = self.session.post(self.base_url, headers=DEFAULT_HEADERS, data=json.dumps(data))
+        r = self.session.post(
+            self.base_url,
+            headers=DEFAULT_HEADERS,
+            params=query_string,
+            data=json.dumps(data),
+        )
 
         if r.status_code != 200:
             self.raise_from_response(r)

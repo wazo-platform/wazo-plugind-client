@@ -14,13 +14,19 @@ client = Client('localhost', verify_certificate=False, token=<wazo-auth-token>)
 ### Installing a plugin from a git URL
 
 ```python
-client.plugins.install(<url>, 'git')
+client.plugins.install(method='git', options={'url': <url>})
 ```
 
 ### Installing a plugin from a git URL in a branch or a tag
 
 ```python
-client.plugins.install(<url>, 'git', options={'ref': '<branch or tag>'})
+client.plugins.install(method='git', options={'url': <url>, 'ref': '<branch or tag>'})
+```
+
+### Reinstalling a plugin that is already installed
+
+```python
+client.plugins.install(method='<method>', options=<options>, reinstall=True)
 ```
 
 ### Listing plugins available for installation

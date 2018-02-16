@@ -51,12 +51,8 @@ class PluginCommand(RESTCommand):
         data = {'method': method,
                 'options': options or {}}
 
-        # make the client compatible with API version 0.1 and 0.2
         if url:
-            if self._client._version == '0.1':
-                data['url'] = url
-            else:
-                data['options']['url'] = url
+            data['options']['url'] = url
 
         r = self.session.post(self.base_url, headers=DEFAULT_HEADERS, data=json.dumps(data))
 

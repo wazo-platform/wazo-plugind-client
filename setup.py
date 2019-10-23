@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Copyright 2017-2018 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2017-2019 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 from setuptools import setup
@@ -20,7 +20,7 @@ setup(
     packages=find_packages(),
 
     entry_points={
-        'plugind_client.commands': [
+        'wazo_plugind_client.commands': [
             'config = wazo_plugind_client.commands:ConfigCommand',
             'market = wazo_plugind_client.commands:MarketCommand',
             'plugins = wazo_plugind_client.commands:PluginCommand',

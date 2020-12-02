@@ -70,7 +70,7 @@ client.plugins.uninstall(<namespace>, <name>)
 ### Getting the service configuration
 
 ```python
-client.config()
+client.config.get()
 ```
 
 ## Debian package

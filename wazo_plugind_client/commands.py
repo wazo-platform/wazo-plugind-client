@@ -2,7 +2,6 @@
 # Copyright 2017-2021 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-import json
 from wazo_lib_rest_client import RESTCommand
 
 
@@ -64,7 +63,7 @@ class PluginCommand(RESTCommand):
             self.base_url,
             headers=headers,
             params=query_string,
-            data=json.dumps(data),
+            json=data,
         )
 
         if r.status_code != 200:

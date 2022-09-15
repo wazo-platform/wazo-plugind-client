@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2017-2021 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2017-2022 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 from wazo_lib_rest_client import RESTCommand
@@ -48,8 +48,7 @@ class PluginCommand(RESTCommand):
         return r.json()
 
     def install(self, url=None, method=None, options=None, **kwargs):
-        data = {'method': method,
-                'options': options or {}}
+        data = {'method': method, 'options': options or {}}
 
         query_string = {}
         if kwargs.get('reinstall'):
@@ -106,3 +105,17 @@ class ConfigCommand(RESTCommand):
             self.raise_from_response(r)
 
         return r.json()
+
+
+class StatusCheckerCommand(RESTCommand):
+
+    resource = 'status'
+
+    def get(self):
+        headers = self._get_headers()
+        response = self.session.get(self.base_url, headers=headers)
+
+        if response.status_code != 200:
+            self.raise_from_response(response)
+
+        return response.json()

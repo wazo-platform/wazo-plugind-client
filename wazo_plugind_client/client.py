@@ -10,4 +10,6 @@ class PlugindClient(BaseClient):
     namespace = 'wazo_plugind_client.commands'
 
     def __init__(self, host, port=443, prefix='/api/plugind', version='0.2', **kwargs):
-        super(PlugindClient, self).__init__(host=host, port=port, prefix=prefix, version=version, **kwargs)
+        super(PlugindClient, self).__init__(
+            host=host, port=port, prefix=prefix, version=version, **kwargs
+        )

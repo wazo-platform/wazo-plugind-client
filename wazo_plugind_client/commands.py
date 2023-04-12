@@ -1,11 +1,10 @@
-# Copyright 2017-2022 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2017-2023 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 from wazo_lib_rest_client import RESTCommand
 
 
 class MarketCommand(RESTCommand):
-
     resource = 'market'
 
     def get(self, namespace, name):
@@ -33,7 +32,6 @@ class MarketCommand(RESTCommand):
 
 
 class PluginCommand(RESTCommand):
-
     resource = 'plugins'
 
     def get(self, namespace, name):
@@ -93,7 +91,6 @@ class PluginCommand(RESTCommand):
 
 
 class ConfigCommand(RESTCommand):
-
     resource = 'config'
 
     def get(self):
@@ -107,7 +104,6 @@ class ConfigCommand(RESTCommand):
 
 
 class StatusCheckerCommand(RESTCommand):
-
     resource = 'status'
 
     def get(self):

@@ -9,7 +9,7 @@ class MarketCommand(RESTCommand):
 
     def get(self, namespace, name):
         headers = self._get_headers()
-        url = '{}/{}/{}'.format(self.base_url, namespace, name)
+        url = f'{self.base_url}/{namespace}/{name}'
         r = self.session.get(url, headers=headers)
 
         if r.status_code != 200:
@@ -36,7 +36,7 @@ class PluginCommand(RESTCommand):
 
     def get(self, namespace, name):
         headers = self._get_headers()
-        url = '{}/{}/{}'.format(self.base_url, namespace, name)
+        url = f'{self.base_url}/{namespace}/{name}'
         r = self.session.get(url, headers=headers)
 
         if r.status_code != 200:
@@ -77,11 +77,7 @@ class PluginCommand(RESTCommand):
 
     def uninstall(self, namespace, name):
         headers = self._get_headers()
-        url = '{base_url}/{namespace}/{name}'.format(
-            base_url=self.base_url,
-            namespace=namespace,
-            name=name,
-        )
+        url = f'{self.base_url}/{namespace}/{name}'
         r = self.session.delete(url, headers=headers)
 
         if r.status_code != 204:

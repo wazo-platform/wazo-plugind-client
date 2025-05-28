@@ -23,6 +23,12 @@ client.plugins.install(method='git', options={'url': <url>})
 client.plugins.install(method='git', options={'url': <url>, 'ref': '<branch or tag>'})
 ```
 
+### Installing a plugin from a git URL in a sub directory
+
+```python
+client.plugins.install(method='git', options={'url': <url>, 'subdirectory': '<subdir>'})
+```
+
 ### Reinstalling a plugin that is already installed
 
 ```python
@@ -54,7 +60,6 @@ client.market.get(<namespace>, <name>)
 client.plugins.list()
 ```
 
-
 ### Getting the metadata of an installed plugin
 
 ```python
@@ -79,18 +84,18 @@ Follow the following steps to build a debian package for wazo-plugind-client man
 
 1. Copy the source directory to a machine with all dependencies installed
 
-```sh
-rsync -av . <builder-host>:~/wazo-plugind-client
-```
+   ```sh
+   rsync -av . <builder-host>:~/wazo-plugind-client
+   ```
 
 2. On the host, increment the changelog
 
-```sh
-dch -i
-```
+   ```sh
+   dch -i
+   ```
 
 3. Build the package
 
-```sh
-dpkg-buildpackage -us -uc
-```
+   ```sh
+   dpkg-buildpackage -us -uc
+   ```

@@ -23,6 +23,12 @@ client.plugins.install(method='git', options={'url': <url>})
 client.plugins.install(method='git', options={'url': <url>, 'ref': '<branch or tag>'})
 ```
 
+### Installing a plugin from a git URL in a sub directory
+
+```python
+client.plugins.install(method='git', options={'url': <url>, 'subdirectory': '<subdir>'})
+```
+
 ### Reinstalling a plugin that is already installed
 
 ```python
